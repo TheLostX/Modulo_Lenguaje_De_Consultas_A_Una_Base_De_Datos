@@ -1,0 +1,35 @@
+create database primerabd character set utf8;
+
+create table primeraTabla(
+	
+    idTabla int auto_increment,
+    nombre varchar(30),
+    apellido varchar(30),
+    fechaNacimiento date,
+    primary key (idTabla)
+);
+
+create table producto(
+	idProducto int auto_increment,
+    nombreProducto varchar(40),
+    descripcionProd varchar(50),
+    stockProd int,
+    precioProd double,
+    primary key(idProducto)
+);
+
+create table persona(
+	idPersona int auto_increment,
+    nombre varchar(30),
+    apellido varchar (30),
+    fechaNac date,
+    rut varchar(20),
+    genero char, 
+    primary key(idPersona)
+);
+
+create table region(
+    idRegion int auto_increment,
+    nombreRegion varchar(50),
+    primary key (idRegion)
+);
