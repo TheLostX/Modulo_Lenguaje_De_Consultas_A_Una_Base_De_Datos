@@ -1,0 +1,77 @@
+
+-- agregar columnas a una tabla
+alter table producto add column procedencia varchar(50);
+alter table persona add column direccion varchar(100);
+
+-- modificar el tipo de un campo de la tabla
+alter table persona modify genero varchar(20);
+alter table persona modify direccion varchar (50);
+alter table producto modify descripcionProd text;
+alter table region modify nombreRegion varchar(30);
+
+-- eliminar una columna de una tabla
+alter table producto drop column procedencia;
+alter table persona drop column fechaNac;
+alter table producto drop column precioProd;
+
+-- eliminar una tabla
+drop table region;
+
+
+-- ejercicio practico
+-- 1.- crear una base de datos
+create database segundabd;
+
+-- 2.- crear 2 tablas
+create table persona(
+	idPersona int auto_increment,
+    nombre char,
+    apellido varchar(30),
+    rut varchar(20),
+    primary key(idPersona)
+);
+
+create table mascota(
+	idMascota int auto_increment,
+    edad int,
+    primary key (idMascota)
+);
+-- 3.-Agregar 2 nuevos campos a las tablas creadas
+alter table persona add column edad int;
+alter table mascota add column nombre varchar(30);
+
+-- 4.- cambiar el tipo de dato a una columna
+alter table persona modify nombre varchar(30);
+
+-- 5.- Eliminar un campo de cada tabla creada
+alter table persona drop column rut;
+alter table mascota drop column edad;
+
+-- comando insert
+
+insert into mascota (nombre)
+values ('Cindy'),
+('Lupe');
+
+insert into persona (nombre, apellido, edad)
+values('Charles', 'Barkley', 39);
+
+insert into persona(nombre, apellido, edad)
+values('Chuck','Norris',23);
+
+insert into persona(nombre, apellido, edad)
+values('Carlos', 'Jeria', 34),
+	  ('Alberto', 'Fuji', 58),
+      ('Fabian', 'Noss', 31),
+      ('Hola', 'Adios', 28);
+
+delete
+from persona
+where idPersona = 2; 
+
+select * from mascota;
+select * from persona;
+
+-- extra
+
+alter table persona add column fechaNac date;

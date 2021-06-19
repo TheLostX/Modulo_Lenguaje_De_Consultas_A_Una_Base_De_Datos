@@ -1,0 +1,136 @@
+select * from empleado;
+select idEmpleado, nombre, apellidoP from empleado;
+select nombre, apellidoP, apellidoM from empleado;
+
+select * from libro;
+select nombreLibro, autor, anioPublicacion from libro;
+select nombreLibro from libro;
+
+select * from cliente;
+select nombre, apellidoP from cliente;
+select nombre, edad from cliente;
+
+-- ----------------------------------------------------
+
+-- tabla empleado
+select * 
+from empleado 
+where departamento = 'Ventas';
+
+select nombre, apellidoP, apellidoM, departamento 
+from empleado 
+where departamento = 'Recursos Humanos';
+
+select * 
+from empleado
+where sueldo >400000;
+
+-- tabla libro
+select *
+from libro
+where editorial = 'Ercilla';
+
+select nombreLibro, autor, categoria
+from libro
+where categoria = 'Aventura';
+
+select * 
+from libro
+where anioPublicacion > 1990;
+
+-- tabla cliente
+select * 
+from cliente
+where edad >45;
+
+-- ----------------------------------------------
+-- -------------------tabla empleado----------------------------
+select * 
+from empleado
+where departamento = 'ventas'
+and edad > 38;
+
+select nombre, apellidoP, apellidoM, cargo
+from empleado
+where cargo = 'jefe'
+and edad < 50;
+
+-- ----------------------tabla libro---------------------------------------
+select * from libro
+where autor = 'anonimo'
+and editorial = 'nintendo';
+
+select nombreLibro, autor, anioPublicacion, categoria
+from libro
+where categoria = 'fantasia'
+and autor = 'anonimo';
+
+select *
+from libro
+where autor = 'anonimo'
+and ejemplares > 30;
+
+-- -------------------tabla cliente---------------------------------
+select * 
+from cliente
+where apellidoM = 'diaz'
+and edad > 30;
+
+-- ---------------------------------------------------------------
+-- -------------------tabla empleado------------------------------
+select * 
+from empleado
+where apellidoM = 'diaz'
+or apellidoP = 'diaz';
+
+select nombre, apellidoP, apellidoM, edad, departamento
+from empleado
+where departamento = 'ventas'
+or departamento = 'logistica';
+
+-- ------------------------tabla libro----------------------------
+select *
+from libro
+where editorial = 'ercilla'
+or editorial = 'nintendo';
+
+select nombreLibro, autor, categoria
+from libro
+where categoria = 'fantasia'
+or categoria = 'drama';
+
+-- --------------------tabla cliente------------------------------
+select * 
+from cliente
+where apellidoP = 'sanchez'
+or apellidoM = 'diaz';
+
+select *
+from cliente
+where apellidoM = 'diaz'
+or edad > 50;
+
+-- -------------------------------------------------------------
+-- -----------------------tabla empleado------------------------
+select * 
+from empleado
+where departamento in ('ventas', 'logistica');
+
+select idEmpleado, apellidoP, apellidoM, edad
+from empleado
+where idEmpleado in(2, 4, 6, 8, 10, 12, 14, 16);
+
+-- -------------------------tabla libro----------------------------
+select * 
+from libro
+where categoria in ('drama', 'fantasia');
+
+select nombreLibro, autor anioPublicacion
+from libro
+where autor in ('jr', 'shigeru miyamoto', 'anonimo');
+
+-- ----------------------- tabla cliente--------------------------
+select * 
+from cliente
+where apellidoM in ('perez', 'diaz');
+

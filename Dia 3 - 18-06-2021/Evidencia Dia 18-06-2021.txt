@@ -1,0 +1,89 @@
+create database biblioteca character set utf8;
+
+create table empleado(
+	idEmpleado int auto_increment,
+    nombre varchar(30),
+    apellidoP varchar(30),
+    apellidoM varchar(30),
+    edad int,
+    departamento varchar(50),
+    cargo varchar(30),
+    sueldo double,
+    fechaIngreso date,
+    primary key (idEmpleado)
+);
+
+create table libro(
+	idLibro int auto_increment,
+    nombreLibro varchar (100),
+    autor varchar(50),
+    editorial varchar (50),
+    anioPublicacion int,
+    categoria varchar(30),
+    ejemplares int,
+    primary key (idLibro)
+
+);
+
+create table cliente(
+	idCliente int auto_increment,
+    nombre varchar(30),
+    apellidoP varchar(30),
+    apellidoM varchar(30),
+    edad int,
+    primary key (idCliente)
+);
+
+-- inserts
+
+insert into empleado(nombre, apellidoP, apellidoM, edad, departamento, cargo, sueldo, fechaIngreso)
+values('Chuck', 'Norris', 'Salazar', 58, 'Ventas', 'Vendedor', 380000, '1998-08-12'),
+	  ('Mario', 'Benavides', 'Briceño', 34, 'Recursos Humanos', 'Jefe', 450000, '2004-12-12'),
+      ('Fernanda', 'Meneses', 'Zuñiga', 48, 'Ventas', 'Vendedor',380000, '2008-04-30'),
+	  ('Mario', 'Contreras', 'Brito', 35, 'Ventas', 'Jefe', 450000, '2002-03-29'),
+      ('Maria', 'Meneses', 'Jeria', 55, 'Recursos Humanos', 'Trabajador',380000, '2002-06-30'),
+	  ('Ismael', 'Fuentes', 'Pinto', 30, 'Logistica', 'Trabajador',380000, '2012-04-30'),
+	  ('Lucía', 'Millar', 'Brito', 38, 'Ventas', 'Vendedor', 380000, '2011-03-29'),
+      ('Isabel', 'Diaz', 'Perez', 62, 'Logística', 'Trabajador',380000, '2002-02-22'),
+	  ('Ernesto', 'Dominguez', 'Zuñiga', 29, 'Logistica', 'Trabajador', 380000, '2019-04-30'),
+	  ('Mariano', 'Contreras', 'Millar', 35, 'Ventas', 'Vendedor', 380000, '2017-03-15'),
+      ('Chuck', 'Meneses', 'Zamora', 58, 'Logistica', 'Jefe', 500000, '2002-01-30'),
+	  ('Fernanda', 'Briceño', 'Zamorano', 37, 'Logistica', 'Trabajador',380000, '2015-04-30'),
+	  ('Carlos', 'Contreras', 'Brito', 35, 'Ventas', 'Vendedor', 380000, '2016-03-15'),
+      ('Eduardo', 'Jorquera', 'Jeria', 48, 'Recursos Humanos', 'Trabajador',380000, '2016-06-30'),
+      ('Javier', 'Jorquera', 'Diaz', 47, 'Ventas', 'Trabajador',380000, '2018-07-12');
+      
+
+insert into libro(nombreLibro, autor, editorial, anioPublicacion, categoria, ejemplares)
+values('Lo que el viento se llevó', 'Anonimo', 'Ercilla', 1945, 'Drama', 30),
+	  ('Lo que el viento no se llevó', 'Anonimo', 'Ercilla', 1945, 'Drama', 29),
+	  ('Bob Esponja', 'Bob', 'Los Andes', 1998, 'Aventura', 52),
+	  ('Las aventuras de Don cangrejo', 'Don cangrejo', 'America', 1990, 'Aventura', 48),
+	  ('Patrick Star', 'Patricio Estrella', 'Los Andes', 2004, 'Accion', 90),
+	  ('Arenita Mejillas', 'Arenita', 'Ercilla', 1994, 'Aventura', 28),
+	  ('Las Aventuras de Calamardo', 'Calamardo Tentaculos', 'America', 1995, 'Suspenso', 88),
+	  ('El señor de los Anillos', 'Anonimo', 'Los Campos', 1942, 'Fantasia', 101),
+      ('Harry Potter I', 'JR', 'Ercilla', 1957, 'Fantasia', 80),
+      ('Rocky', 'Rocky Balboa', 'Los Campos', 2008, 'Accion', 20),
+      ('Rocky 2', 'Rocky Balboa', 'Los Campos', 2010, 'Accion', 30),
+      ('Harry Potter II', 'JR', 'Ercilla', 1960, 'Fantasia', 48),
+      ('The Legend Of Zelda', 'Shigero Miyamoto', 'Nintendo', 1986, 'Fantasia', 100),
+      ('Mario Bros', 'Anonimo', 'Nintendo', 1986, 'Aventura', 70),
+      ('Kirby', 'Masahiro Sakurai', 'Nintendo', 2006, 'Aventura', 50);
+      
+insert into cliente(nombre, apellidoP, apellidoM, edad)
+values('Chuck', 'Berry', 'Diaz', 24),
+	  ('Chuck', 'Billy', 'Acevedo', 48),
+	  ('Anastasia', 'Bernal', 'Gutierrez', 29),
+      ('Carlos', 'Heraldo', 'Guzman', 42),
+      ('Alfredo', 'Zuñiga', 'Diaz', 39),
+      ('Almendra', 'Sanchez', 'Diaz', 21),
+      ('Javier', 'Saavedra', 'Bernal', 37),
+      ('Roberto', 'Rivera', 'Perez', 55),
+      ('Paulina', 'Bustamante', 'Pereira', 33),
+      ('Ninoska', 'Ojeda', 'Vera', 24),
+      ('Alberto', 'Fuji', 'Mori', 60),
+      ('Cristobal', 'Velasco', 'Diaz', 28),
+      ('Pedro', 'Morales', 'Jimenez', 39),
+      ('Pablo', 'Vodanovic', 'Diaz', 65),
+      ('Chad', 'Sanchez', 'Diaz', 30);
