@@ -1,0 +1,133 @@
+-- clase 22 del 06 de 2021
+
+-- ----------------------------------ejercicio N°1--------------------------------------------
+select * 
+from libro
+where ejemplares > 70;
+
+select nombre, apellidoP, apellidoM, cargo
+from empleado
+where sueldo > 400000
+and departamento = 'ventas';
+
+select *
+from libro
+where editorial = 'ercilla'
+and autor = 'anonimo';
+
+select *
+from libro
+where categoria = 'fantasia'
+and anioPublicacion > 1950;
+
+select *
+from empleado
+where departamento = 'logistica';
+
+select * 
+from cliente
+where apellidoM = 'diaz'
+and edad > 30;
+
+-- --------------------------ejercicio n°2-------------operador not in------------------------
+select nombreLibro, autor, categoria
+from libro
+where autor
+not in ('anonimo', 'rocky balboa', 'jr');
+
+select *
+from libro
+where categoria
+not in ('drama', 'aventura', 'suspenso');
+
+select nombre, apellidoP, apellidoM, cargo
+from empleado
+where cargo
+not in ('vendedor', 'jefe');
+
+select *
+from empleado
+where departamento
+not in ('logistica', 'ventas');
+
+select * 
+from cliente
+where nombre
+not in ('chuck', 'carlos')
+and not apellidoM = 'diaz';
+
+-- --------------------------ejercicio N°3---------operador <>-------------------------
+
+select * 
+from libro
+where autor <> 'anonimo';
+
+select nombreLibro, autor, editorial
+from libro
+where editorial <> 'ercilla';
+
+select nombre, apellidoP, apellidoM, cargo
+from empleado
+where cargo <> 'Vendedor';
+
+select *
+from empleado
+where departamento <> 'logistica';
+
+select * 
+from cliente
+where apellidoM <> 'diaz';
+
+-- --------------------------ejercicio N°4-------------operador between and---------------------------
+
+select *
+from libro
+where anioPublicacion
+between 1940 and 1950;
+
+select nombreLibro, autor, categoria, ejemplares
+from libro
+where ejemplares
+between 0 and 30;
+
+select *
+from empleado
+where fechaIngreso
+between '2018-01-01' and '2021-01-01';
+
+select nombre, apellidoP, apellidoM, edad
+from empleado
+where edad
+between 40 and 50;
+
+select *
+from cliente
+where edad
+between 40 and 50;
+
+-- -----------------------------Ejercicio N°5------operador like-------------
+
+select * 
+from libro
+where anioPublicacion
+like '194%';
+
+select nombreLibro, autor, editorial
+from libro
+where autor
+like 'a%';
+
+select * 
+from empleado
+where apellidoP
+like 'm%';
+
+select nombre, apellidoP, apellidoM, edad
+from empleado
+where edad
+like '4%';
+
+select * 
+from cliente
+where nombre
+like 'c%';
