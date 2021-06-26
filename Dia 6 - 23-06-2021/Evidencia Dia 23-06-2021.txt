@@ -1,0 +1,112 @@
+-- clase 23-06-2021
+-- -------------------------------ejercicio 1--------------------------------------------
+select * 
+from libro
+where editorial
+not in ('ercilla', 'los andes');
+
+select nombreLibro, editorial, ejemplares
+from libro
+where ejemplares
+between 70 and 100;
+
+select nombre, apellidoP, cargo, sueldo
+from empleado
+where sueldo
+between 400000 and 500000;
+
+select nombre, apellidoP, apellidoM, cargo, departamento, edad
+from empleado
+where departamento<>'ventas';
+
+-- -------------------Ejercicio N° 2-------clausula order by---------------------------
+select * 
+from libro
+order by nombreLibro;
+
+select nombreLibro, autor, editorial, categoria, ejemplares
+from libro
+where editorial in ('ercilla', 'nintendo')
+order by autor asc;
+
+select * 
+from empleado
+order by edad;
+
+select nombre, apellidoP, apellidoM, edad, departamento, fechaIngreso
+from empleado
+order by fechaIngreso;
+
+select * 
+from cliente
+order by nombre;
+
+-- ---------------------Ejercicio N° 3---------------------------------
+select *
+from empleado
+order by cargo;
+
+select nombre, apellidoP, cargo, departamento
+from empleado
+order by departamento;
+
+select nombre, cargo, sueldo
+from empleado
+order by sueldo;
+
+select nombre, cargo, sueldo
+from empleado
+order by sueldo desc;
+
+select autor, nombreLibro, editorial
+from libro
+order by editorial;
+
+select *
+from libro
+order by ejemplares desc;
+
+-- ------------------Ejercicio N°4--funcion count------------------------------------
+
+select count(idLibro) as cantidad_de_libros from libro;
+
+select count(idEmpleado) as cantidad 
+from empleado
+where departamento <> 'ventas';
+
+select count(idCliente) as cantidad_de_clientes_diaz
+from cliente
+where apellidoM = 'diaz';
+
+-- -------------------Ejercicio N°5--- funcion max-min----------------------------
+
+select min(sueldo) as sueldo_minimo from empleado;
+
+select max(sueldo) as mayor_sueldo from empleado;
+
+select max(ejemplares) as mayor_numero_ejemplares from libro;
+
+select min(ejemplares) as menor_numero_ejemplares from libro;
+
+select min(edad) as menor_edad from cliente;
+
+select max(edad) as mayor_edad from cliente;
+
+-- ------------------------Ejercicio N°6-----funcion sum----------------------------
+
+select sum(ejemplares) as suma_ejemplares from libro;
+
+select sum(sueldo) as suma_sueldos from empleado;
+
+-- ----------------------Ejercicio N°7----------funcion avg-------------------------------
+
+select avg(ejemplares) as promedio_ejemplares 
+from libro;
+
+select avg (sueldo) as promedio_sueldos 
+from empleado;
+
+select avg(edad) as promedio_edades 
+from cliente;
+-- ---------------------------------------------------------------------------------------
+
