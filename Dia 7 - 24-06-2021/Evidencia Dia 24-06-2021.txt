@@ -1,0 +1,66 @@
+-- clase 24-06-2021
+-- ----------------------------Ejercicio N°1---clausula group by---------------------------------
+select count(idLibro) as cantidad, categoria
+from libro 
+group by categoria;
+
+select count(idLibro) as cantidad, editorial
+from libro
+group by editorial;
+
+select count(idEmpleado) as cantidad, departamento
+from empleado
+group by departamento;
+
+select count(idEmpleado) as cantidad, cargo
+from empleado
+group by cargo;
+
+select count(idCliente) as cantidad, apellidoM
+from cliente
+group by apellidoM;
+
+select count(idCliente) as cantidad, nombre
+from cliente
+group by nombre
+order by cantidad desc;
+
+-- -------------------------------Ejercicio N° 2------------------------------------------
+
+select max(sueldo) as maximo_sueldo, departamento
+from empleado
+group by departamento;
+
+select min(sueldo) as maximo_sueldo, departamento
+from empleado
+group by departamento;
+
+select count(idEmpleado) as cantidad, departamento
+from empleado
+group by departamento;
+
+select sum(sueldo) as gasto_total
+from empleado;
+
+select count(idLibro) as cantidad, editorial
+from libro
+group by editorial;
+
+select sum(ejemplares) as cantidad_total_libros
+from libro;
+
+-- ----------ejercicio N°4-----tienda de juegos--------------------------------
+/* Entidades
+-- 1.-Producto
+-- 2.-Empleado
+-- 3.-Cargo
+-- 4.-Categoria
+-- 5.-Tienda
+-- 6.-Cliente
+-- 7.-Ubicacion?
+-- 8.-Departamento
+-- 9.-Venta
+
+*/
+
+
