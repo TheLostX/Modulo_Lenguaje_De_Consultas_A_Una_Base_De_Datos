@@ -1,0 +1,135 @@
+// Tienda de Videojuegos
+
+insert into tienda(nombreTienda, ubicacion)
+values ('Zmart', 'Viña del Mar');
+
+insert into proveedor(nombreProv)
+values('Nintendo Latam'),
+	  ('Sony Latam'),
+      ('Microsoft Latam');
+
+insert into categoria(nombreCategoria)
+values('Accion'),
+	  ('Deporte'),
+      ('Aventura'),
+      ('Plataformas'),
+      ('Novela Gráfica'),
+      ('Pelea'),
+      ('RPG'),
+      ('Roguelike'),
+      ('Shooter'),
+      ('Terror');
+      
+insert into cargo(nombreCargo)
+values('Vendedor'),
+('Jefe');
+
+insert into cliente(nombre, apellidoP, apellidoM, direccion, edad)
+values('Alberto', 'Fujimori', 'Mendez', 'los carrera 1720', 38),
+	  ('John', 'Mori', 'Medina', 'los andes 203', 45),
+      ('Pamela', 'Jiles', 'Escobar', 'Chacabuco 027', 30),
+      ('Eusebio', 'Najera', 'Olivares', 'Baquedano 554', 56),
+      ('Juan', 'Oyanedel', 'Jeria', 'Juan Sanchez 3200', 32);
+      
+insert into empleado(nombre, apellidoP, apellidoM, edad, direccion, idCargo, idTienda)
+values('Carlos', 'Escobar', 'Lazo', 34, 'Los Carrera 854', 1, 1),
+	  ('Eduardo', 'Vera', 'Ramirez', 50, 'Peironet 604', 1, 1),
+      ('Manuel', 'Lopez', 'Leiva', 53, 'Las Hortencias 444', 2, 1);
+      
+insert into mediodepago(nombre)
+values('Efectivo'),
+	  ('Debito'),
+      ('Credito');
+      
+insert into producto(nombreProducto, precioProducto, stock, descripcion, idCategoria, idProveedor, idTienda)
+values('Street Fighter', 45000, 50, 'inserte descripcion aqui', 6, 3, 1),
+	  ('Mortal Kombat XI', 45000, 100, 'inserte descripcion aqui', 6, 2, 1),
+      ('The Binding of Isaac: Repentance', 35000, 35, 'inserte descripcion aqui', 8, 1, 1),
+      ('Super Mario Odyssey', 55000, 130, 'inserte descripcion aqui', 4, 1, 1),
+      ('Resident Evil VIII', 50000, 200, 'inserte descripcion aqui', 10, 2, 1);
+      
+insert into detalleventa(idProducto, idCliente, idMedioPago)
+values(3, 1, 1),
+	  (1, 3, 2),
+      (4, 4, 1),
+      (2, 5, 3),
+      (5, 2, 2);
+      
+select d.idDetalleVenta, p.nombreProducto, p.precioProducto, c.nombreCategoria, cl.nombre as nombre_cliente, cl.apellidoP as apellido_cliente, pr.nombreProv as proveedor
+from detalleventa as d
+inner join producto as p
+on d.idProducto = p.idProducto
+inner join categoria as c
+on p.idCategoria = c.idCategoria
+inner join cliente as cl
+on d.idCliente = cl.idCliente
+inner join proveedor as pr
+on pr.idProveedor = p.idProveedor;
+
+select e.nombre, c.nombreCargo
+from empleado as e
+inner join cargo as c
+on e.idCargo = c.idCargo;
+
+create view DatosCliente as
+select c.nombre, c.apellidoP, c.apellidoM, c.edad
+from cliente as c;
+
+create view DatosEmpleado as
+select e.nombre, e.apellidoP, e.apellidoM, e.edad
+from empleado as e;
+
+------------------------------------------------------------------------------
+//Entidad Educativa
+
+insert into entidadeducativa(nombre, direccion)
+values('Instituto Don Mario Bros', 'Avenida los Carrera 950');
+
+insert into carrera(nombreCarrera)
+values('Pedagogia en Ingles'),
+	  ('Musica'),
+      ('Educacion Fisica'),
+      ('Matematicas'),
+      ('Castellano');
+      
+insert into profesor(nombre, apellidoP, edad, idEntidadEduc)
+values('Matias', 'Fernandez', 34, 1),
+	  ('Juan', 'Villegas', 54, 1),
+      ('Emilia', 'Carvajal', 43, 1),
+      ('Carlos', 'Beltran', 38, 1),
+      ('Claudia', 'Zapata', 45, 1);
+      
+insert into alumno(nombre, apellidoP, edad, idEntidadEducativa, idCarrera)
+values('Gabriel', 'Suazo', 23, 1, 2),
+	  ('Gabriela', 'Contreras', 21, 1, 5),
+      ('Ismael', 'Velarde', 19, 1, 3),
+      ('Camilo', 'Suarez', 21, 1, 1),
+      ('Reinaldo', 'Velasco', 22, 1, 4);
+
+insert into asignatura(nombreAsignatura, horario, semestre, idProfesor)
+values('Ingles I', '8:30 a 10:00 am', 1, 2),
+	  ('Motricidad Humana', '9:30 a 11:00 am', 2,1),
+      ('Introduccion a los instrumentos de viento', '8:30 a 10:00 am', 4,3),
+      ('Calculo I', '8:30 a 10:00 am', 4, 4),
+      ('Comprension Lectora', '11:30 a 1:00 pm', 1, 5);
+      
+insert into tomaderamos(idAlumno, idAsignatura)
+values(1, 3),
+      (2, 5),
+      (3, 2),
+      (4, 1),
+      (5, 4);
+      
+select t.idAlumno, al.nombre, al.apellidoP, al.edad, a.nombreAsignatura, c.nombreCarrera
+from tomaderamos as t
+inner join alumno as al
+on t.idAlumno = al.idAlumno
+inner join asignatura as a
+on a.idAsignatura = t.idAsignatura
+inner join carrera as c
+on c.idCarrera = al.idCarrera;
+
+create view datos_alumnos as
+select a.nombre, a.apellidoP, a.apellidoM, a.edad
+from alumno as a;
+
